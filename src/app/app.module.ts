@@ -6,7 +6,8 @@ import {JokeComponent} from "../joke/joke.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JokeComponent
 
   ],
   imports: [

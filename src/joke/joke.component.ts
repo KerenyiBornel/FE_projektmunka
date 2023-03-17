@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {JokeService} from "./services/joke.service";
 
 @Component({
   selector: 'joke-root',
-  template: '<h1>{{ joke }}</h1>',
+  templateUrl: 'joke.component.html',
+  styleUrls: ['./joke.component.css']
 })
 export class JokeComponent implements OnInit {
   joke = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private jokeService:JokeService) {}
 
   ngOnInit() {
-    this.http.get('https://api.chucknorris.io/jokes/random').subscribe((response: any) => {
+    this.jokeService.getJokeFromAPI().subscribe((response: any) => {
       this.joke = response.value;
     });
   }
