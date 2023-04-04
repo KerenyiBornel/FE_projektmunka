@@ -8,12 +8,17 @@ import {NavbarComponent} from "../navbar/navbar.component";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {TodoComponent} from "../todo/todo.component";
+import {WeatherComponent} from "../weather/weather.component";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     JokeComponent,
-    NavbarComponent
+    NavbarComponent,
+    TodoComponent,
+    WeatherComponent
 
   ],
   imports: [
@@ -22,7 +27,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
 
   ],
   providers: [],
