@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 import {JokeService} from "./services/joke.service";
+import {Joke} from "./models/joke";
 
 @Component({
   selector: 'joke-root',
@@ -13,7 +14,7 @@ export class JokeComponent implements OnInit {
   constructor(private jokeService:JokeService) {}
 
   ngOnInit() {
-    this.jokeService.getJokeFromAPI().subscribe((response: any) => {
+    this.jokeService.getJokeFromAPI().subscribe((response: Joke) => {
       this.joke = response.value;
     });
   }

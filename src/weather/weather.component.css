@@ -16,6 +16,43 @@
   width: fit-content;
 }
 
+.temperature{
+  font-size: 32px;
+  display:block;
+  margin:0 auto;
+  margin-top: 5px;
+  width: fit-content;
+}
+
+.minmaxTemperature{
+  font-size: 12px;
+  display:block;
+  margin:0 auto;
+  width: fit-content;
+}
+
+.tempFeelsLike{
+  font-size: 12px;
+  display:block;
+  margin:0 auto;
+  width: fit-content;
+}
+
+.weatherDataName{
+  font-size: 12px;
+  display:block;
+  margin:0 auto;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+.humidity{
+  font-size: 12px;
+  display:block;
+  margin:0 auto;
+  width: fit-content;
+}
+
 .sun{
   margin-top: 10px;
   color: yellow;

@@ -1,16 +1,20 @@
 <div id="divWeatherMain">
-  <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
-    <i class="fas fa-3x fa-sun sun"></i>
-  </div>
-  <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
-    <i class="fas fa-3x fa-moon moon"></i>
-  </div>
+  <ng-container *ngIf="WeatherData.isDay; else nightIcon">
+    <div class="weatherWidgetRow">
+      <i class="fas fa-3x fa-sun sun"></i>
+    </div>
+  </ng-container>
+  <ng-template #nightIcon>
+    <div class="weatherWidgetRow">
+      <i class="fas fa-3x fa-moon moon"></i>
+    </div>
+  </ng-template>
   <div class="weatherWidgetRow cloudDiv">
     <i class="fas fa-cloud fa-3x cloud"></i>
   </div>
-  <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">{{WeatherData.temp_celcius}}°</div>
-  <div class="weatherWidgetRow" style="font-size: 12px;">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°</div>
-  <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{WeatherData.temp_feels_like}}°</div>
-  <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{WeatherData.name}}</div>
-  <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{WeatherData.main.humidity}}%</div>
+  <p class="temperature">{{WeatherData.temp_celcius}}°</p>
+  <p class="minmaxTemperature">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°</p>
+  <p class="tempFeelsLike">Feels Like: {{WeatherData.temp_feels_like}}°</p>
+  <h2 class="weatherDataName">{{WeatherData.name}}</h2>
+  <p class="humidity">Humidity: {{WeatherData.main.humidity}}%</p>
 </div>

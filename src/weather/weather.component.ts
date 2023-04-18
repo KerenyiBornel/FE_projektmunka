@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {WeatherService} from "./services/weather.service";
+// import {Joke} from "../joke/models/joke";
+import {Weather} from "./models/weather";
 
 @Component({
   selector: 'weather-root',
@@ -9,7 +12,7 @@ export class WeatherComponent implements OnInit{
 
   WeatherData:any;
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
     this.WeatherData = {
@@ -32,12 +35,9 @@ export class WeatherComponent implements OnInit{
   }
 
   getWeatherData(lat: number, lon: number){
-    const apiKey = '19b35dd155eeabbc46ab302ac486b417';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => this.setWeatherData(data))
-      .catch(error => console.error(error));
+    this.weatherService.getWeatherData(lat,lon).subscribe((response: Weather ) => {
+     this.setWeatherData(response)
+    })
   }
 
   setWeatherData(data: any){

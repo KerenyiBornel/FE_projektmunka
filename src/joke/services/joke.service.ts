@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Joke} from "../models/joke";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,8 @@ export class JokeService {
 
   constructor(private http: HttpClient) { }
 
-  getJokeFromAPI(): Observable<any>{
-    return this.http.get('https://api.chucknorris.io/jokes/random')
+  getJokeFromAPI(): Observable<Joke>{
+    return this.http.get<Joke>(environment.joke_url)
   }
 }
 
