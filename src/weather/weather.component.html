@@ -12,9 +12,15 @@
   <div class="weatherWidgetRow cloudDiv">
     <i class="fas fa-cloud fa-3x cloud"></i>
   </div>
-  <p class="temperature">{{WeatherData.temp_celcius}}°</p>
-  <p class="minmaxTemperature">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°</p>
-  <p class="tempFeelsLike">Feels Like: {{WeatherData.temp_feels_like}}°</p>
-  <h2 class="weatherDataName">{{WeatherData.name}}</h2>
-  <p class="humidity">Humidity: {{WeatherData.main.humidity}}%</p>
+  <p class="temperature">{{WeatherData.tempCelcius | number:'1.0-0'}}°</p>
+  <p class="weatherWidgetRow">{{WeatherData.tempMin| number:'1.0-0'}}° / {{WeatherData.tempMax | number:'1.0-0'}}°</p>
+  <p class="weatherWidgetRow">Feels Like: {{WeatherData.tempFeelsLike | number:'1.0-0'}}°</p>
+  <h2 class="weatherDataName">{{WeatherData.cityName}}</h2>
+  <p class="weatherWidgetRow">Humidity: {{WeatherData.humidity}}%</p>
+  <div class="search">
+    <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Search city" formControlName="name">
+    </form>
+  </div>
 </div>
+

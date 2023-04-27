@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {TodoComponent} from "../todo/todo.component";
 import {WeatherComponent} from "../weather/weather.component";
 import {AppRoutingModule} from "./app-routing.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import {AppRoutingModule} from "./app-routing.module";
     MatIconModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

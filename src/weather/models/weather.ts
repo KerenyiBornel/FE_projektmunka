@@ -1,6 +1,10 @@
 export interface Weather {
-  icon_url: string;
-  id: string;
-  url: string;
-  value: string;
+  cityName: string
+  sunsetTime: string
+  isDay: boolean
+  tempCelcius: number
+  tempMin: number
+  tempMax: number
+  tempFeelsLike: number
+  humidity: number
 }

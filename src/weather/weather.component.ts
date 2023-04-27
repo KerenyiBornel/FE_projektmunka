@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WeatherService} from "./services/weather.service";
-// import {Joke} from "../joke/models/joke";
 import {Weather} from "./models/weather";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'weather-root',
@@ -9,10 +9,24 @@ import {Weather} from "./models/weather";
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit{
-
   WeatherData:any;
 
-  constructor(private weatherService: WeatherService) { }
+  cityForm = this.formBuilder.group({
+    name: ''
+  });
+
+  constructor(
+    private weatherService: WeatherService,
+    private formBuilder: FormBuilder,
+
+  ) { }
+
+  onSubmit(){
+    const cityName = this.cityForm.value.name;
+    if(cityName) {
+      this.getWeatherDataByCityName(cityName);
+    }
+  }
 
   ngOnInit() {
     this.WeatherData = {
@@ -36,20 +50,15 @@ export class WeatherComponent implements OnInit{
 
   getWeatherData(lat: number, lon: number){
     this.weatherService.getWeatherData(lat,lon).subscribe((response: Weather ) => {
-     this.setWeatherData(response)
+      this.WeatherData = response;
     })
   }
 
-  setWeatherData(data: any){
-    this.WeatherData = data;
-    let sunsetTime = new Date(this.WeatherData.sys.sunset * 1000);
-    this.WeatherData.sunset_time = sunsetTime.toLocaleTimeString();
-    let currentDate = new Date();
-    this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime());
-    this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
-    this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);
-    this.WeatherData.temp_max = (this.WeatherData.main.temp_max - 273.15).toFixed(0);
-    this.WeatherData.temp_feels_like = (this.WeatherData.main.feels_like - 273.15).toFixed(0);
+  getWeatherDataByCityName(cityName: string) {
+    this.weatherService.getWeatherDataByCityName(cityName).subscribe((response: Weather) => {
+      this.WeatherData = response;
+    });
   }
+
 
 }
