@@ -1,0 +1,12 @@
+.dialogInputs{
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.formInput{
+  width: 100%;
+  height: 100px;
+  margin-bottom: 25px;
+  display: block;
+}

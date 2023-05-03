@@ -12,6 +12,15 @@ import {TodoComponent} from "../todo/todo.component";
 import {WeatherComponent} from "../weather/weather.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AgGridModule} from "ag-grid-angular";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {DialogComponent} from "../todo/dialog/dialog.component";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+
 
 @NgModule({
   declarations: [
@@ -19,7 +28,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     JokeComponent,
     NavbarComponent,
     TodoComponent,
-    WeatherComponent
+    WeatherComponent,
+    DialogComponent
 
   ],
   imports: [
@@ -28,10 +38,18 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
+
 
   ],
   providers: [],

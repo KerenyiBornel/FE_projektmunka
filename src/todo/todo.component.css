@@ -1,0 +1,12 @@
+.dialogContainer{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.fixedButton{
+  position: absolute;
+  bottom: 10%;
+  right: 3%;
+  z-index: 1;
+}
