@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {DialogComponent} from "./dialog/dialog.component";
+import {NewstickerComponent} from "./dialog/newsticker.component";
 
 @Component({
   selector: 'todo-root',
@@ -12,9 +12,14 @@ export class TodoComponent {
 
   }
   openDialog(){
-    this.matDialog.open(DialogComponent,{
+    const dialogAdatok = this.matDialog.open(NewstickerComponent,{
+      maxHeight: '80vh',
       width: '500px',
-    })
+    });
+
+    dialogAdatok.afterClosed().subscribe(result => {
+      console.log('Dialog result:', result);
+    });
   }
 
 }

@@ -12,11 +12,10 @@ import {TodoComponent} from "../todo/todo.component";
 import {WeatherComponent} from "../weather/weather.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AgGridModule} from "ag-grid-angular";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {DialogComponent} from "../todo/dialog/dialog.component";
+import {NewstickerComponent} from "../todo/dialog/newsticker.component";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
@@ -29,7 +28,7 @@ import {MatSelectModule} from "@angular/material/select";
     NavbarComponent,
     TodoComponent,
     WeatherComponent,
-    DialogComponent
+    NewstickerComponent
 
   ],
   imports: [
@@ -45,7 +44,6 @@ import {MatSelectModule} from "@angular/material/select";
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AgGridModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule
