@@ -8,6 +8,7 @@ import {NewstickerComponent} from "./dialog/newsticker.component";
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent {
+  formValuesArray: any[] = [];
   constructor(private matDialog:MatDialog) {
 
   }
@@ -19,6 +20,7 @@ export class TodoComponent {
 
     dialogAdatok.afterClosed().subscribe(result => {
       console.log('Dialog result:', result);
+      this.formValuesArray.push(result);
     });
   }
 

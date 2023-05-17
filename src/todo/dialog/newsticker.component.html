@@ -4,8 +4,9 @@
   </header>
   <form [formGroup] = "newstickerForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="dialogInputs">
-      <input matInput placeholder="Name" formControlName="name">
+      <input matInput placeholder="Name" formControlName="name" >
       <mat-icon matSuffix>description</mat-icon>
+      <mat-error *ngIf="newstickerForm.get('name')?.hasError('required')">Name of the task is required</mat-error>
     </mat-form-field>
 
     <textarea class="formInput" placeholder="Task Details" formControlName="description"></textarea>
@@ -15,7 +16,11 @@
       <input matInput [matDatepicker]="picker" formControlName="date">
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="newstickerForm.get('date')?.hasError('dateNotChanged')">
+        Date hasn't changed
+      </mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill" class="dialogInputs">
       <mat-label>Select an option</mat-label>
       <mat-select [(value)]="selected" formControlName="importance">
@@ -26,7 +31,7 @@
     </mat-form-field>
 
     <mat-dialog-actions align="center">
-      <button mat-raised-button color="primary" type="submit">save</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="newstickerForm.get('name')?.invalid">save</button>
       <button mat-raised-button color="warn" matDialogClose="" >cancel</button>
     </mat-dialog-actions>
 </form>

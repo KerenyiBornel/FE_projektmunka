@@ -4,6 +4,13 @@
       <button mat-raised-button color="primary" (click)="openDialog()">+</button>
     </mat-dialog-actions>
   </div>
+
+  <div *ngFor="let formValues of formValuesArray" class="sticker">
+    <p>{{ formValues.name }}</p>
+    <p>{{ formValues.description }}</p>
+    <p>{{ formValues.date | date }}</p>
+    <p>{{ formValues.importance }}</p>
+  </div>
 </div>
 
 
