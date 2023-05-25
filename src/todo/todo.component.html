@@ -1,3 +1,4 @@
+<body>
 <div class="dialogContainer">
   <div class="fixedButton">
     <mat-dialog-actions>
@@ -6,11 +7,12 @@
   </div>
 
   <div *ngFor="let formValues of formValuesArray" class="sticker">
-    <p>{{ formValues.name }}</p>
-    <p>{{ formValues.description }}</p>
-    <p>{{ formValues.date | date }}</p>
-    <p>{{ formValues.importance }}</p>
+    <div>{{ formValues.name }}</div>
+    <div>{{ formValues.date | date }}</div>
+    <div>{{ formValues.description }}</div>
+    <div>{{ formValues.importance }}</div>
   </div>
 </div>
+</body>
 
 

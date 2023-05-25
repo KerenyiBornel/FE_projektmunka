@@ -1,24 +1,32 @@
+body{
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(113,9,121,1) 35%, rgba(41,30,117,1) 100%);
+}
+
 #divWeatherMain{
-  margin: auto;
   display: block;
   border-radius: 10px;
-  width: 200px;
-  height: 220px;
+  width: 350px;
+  height: 300px;
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,7,42,1) 75%, rgb(8, 10, 63) 100%);
   color: white;;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .weatherWidgetRow{
   display:block;
-  margin:0 auto;
-  font-size: 12px;
+  margin:8px auto;
+  font-size: 15px;
   width: fit-content;
 }
 
 .temperature{
-  font-size: 32px;
+  font-size: 40px;
   display:block;
   margin:0 auto;
   margin-top: 5px;
@@ -33,19 +41,33 @@
   width: fit-content;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: midnightblue;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: midnightblue;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: midnightblue;
+}
+
 .search{
   margin-bottom: 1em;
   text-align: center;
 }
 
 .search input{
-  background-color: midnightblue;
+  background-color: mediumpurple;
   outline: none;
   border: none;
   border-radius: 20px;
   padding: 1em;
-  color: white;
-  font-size: 0.8em;
+  color: midnightblue;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
   text-align: center;
 }
 
